@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<!-- Ez ahaztu zure javascript fitxategiaren izena script etiketaren src atributuan zehazten. -->
+		<script type="text/javascript" src=""></script>
+	</head>
+	<body>
+		<form action="irakurri.php" id="form" onsubmit=" return balidatu()" method="post">
+			Sartu izena:*
+			<input type="text" id="izena" name="izena"></input></br>
+			Sartu e-posta:*
+			<input type="text" id="posta" name="posta"></input></br>
+			<input type="checkbox" id="checkbox" name="checkbox"></input>
+			E-posta publikoa izatea nahi dut.</br></br>
+			Iruzkinak:</br>
+			<textarea id="textarea" name="textarea" form="form"></textarea>
+			</br></br>
+			<span><input type="submit" id="bidali" name="bidali"  value="Bidali"> <input type="button" id="ikusi" name="ikusi" value="Iruzkinak ikusi" onclick="erakutsi()">
+			</input></span>
+			</input>
+			</br></br>
+			* duten eremu guztiak derrigorrezkoak dira.
+			</br></br>
+			<img id="argazkia" height="300" width="500"/>
+			
+		</form>	
+		<script>
+			function balidatu(){
+				var boolean=true;
+				var izena = document.getElementById('izena').value;
+				if(izena.replace(/\s/g,'').length==0){
+					boolean=false;
+					alert('Izena idatzi behar duzu');
+					document.getElementById('izena').style.backgroundColor="red";
+				}
+				var korreoa=document.getElementById('posta').value;
+				var bektorea=korreoa.split('@');
+				if(bektorea.length-1!=1){
+					boolean=false;
+					alert('@ bakarra idatzi ahal duzu');
+					document.getElementById('posta').style.backgroundColor="red";
+				}
+				if(bektorea[0].replace(/\s/g,'').length==0){
+					boolean=false;
+					alert('@ aurretik zerbait idatzi behar da');
+					document.getElementById('posta').style.backgroundColor="red";
+				}
+				if(bektorea[1].search(".")==-1){
+					boolean=false;
+					alert('@ ondoren "." bat idatzi behar da');
+					document.getElementById('posta').style.backgroundColor="red";
+				}
+				var puntuBek = bektorea[1].split('.');
+				if(puntuBek[puntuBek.length-1].length<2){
+					boolean=false;
+					alert('Azkeneko puntua ondoren gutxienez bi karaktere');
+					document.getElementById('posta').style.backgroundColor="red";
+				}
+				return boolean;
+			}
+			
+			function erakutsi(){
+				location.href="file:///home/cuentas/7/799605/Desktop/Iruzkinak.html";
+
+			}
+		</script>	
+	</body>
+</html>
