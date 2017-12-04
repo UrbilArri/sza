@@ -1,5 +1,5 @@
 <?php
- //if(isset($_POST['mota'], $_POST['probintzia'], $_POST['hiria'], $_POST['errepidea'])){
+ if(isset($_POST['mota'], $_POST['probintzia'], $_POST['hiria'], $_POST['errepidea'])){
  	$abisuak=simplexml_load_file('abisuak.xml');
  	$id=strval($abisuak->count());
 	$abisua=$abisuak->addchild('abisua');
@@ -17,10 +17,10 @@
  		$iruzkina=$_POST['iruzkina'];
  	}
 	$abisua->addchild('iruzkina', $iruzkina);
-	$abisua->asXML('abisuak.xml');
-	header('Location: nagusia.php');
- //}
- //else{
- //	echo('Ez daude datu guztiak');
- //}
+	$abisuak->asXML('abisuak.xml');
+	echo "<script> window.location.href='nagusia.php'</script>";
+ }
+ else{
+ 	echo('Ez daude datu guztiak');
+}
 ?>

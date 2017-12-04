@@ -34,7 +34,7 @@
 				font-family: Georgia, "Times New Roman", Times, serif;
 			}
 			.taula{
-				width: 1200px;
+				width: 1050px;
 				padding: 10px 20px;
 				background: #f4f7f8;
 				margin: 10px auto;
@@ -45,7 +45,14 @@
 				border-width: 2px;
 				border-radius:2px;
 				padding: 2px;
+				border-color:black;
+				border: solid;
 			}
+			.azkenZelda {
+				border: none;
+				width:200px;
+				color: red;
+				}
 			
 			.form-style input[type="text"],
 			.form-style textarea,
@@ -99,24 +106,27 @@
 	</head>
 	<body>
 		<h1>Ongi etorri social drivera!</h1>
-		<table border = '1' align="center">
 		<?php
 			$abisuak = simplexml_load_file('abisuak.xml');
 			echo '<table border = "1" class="taula"> </br>';
-			echo '<td class="zelda">Data</td><td class="zelda">Mota</td><td class="zelda">Probintzia</td><td class="zelda">Hiria</td><td class="zelda">Errepidea</td><td class="zelda">Iruzkina</td></tr></br>';
+			echo '<td class="zelda" style="font-weight: bold">Data</td><td class="zelda" style="font-weight: bold">Mota</td><td class="zelda" style="font-weight: bold">Errepidea</td><td class="azkenZelda">Abisu osoa ikusi</td></tr></br>';
 			foreach($abisuak->abisua as $abisua)
 			{
 				$data = $abisua->data;
 				$mota = $abisua->mota;
-				$probintzia= $abisua->probintzia;
-				$hiria = $abisua->hiria;
 				$errepidea = $abisua->errepidea;
-				$iruzkina = $abisua->iruzkina;
-				echo "<td>$data</td><td>$mota</td><td>$probintzia</td><td>$hiria</td><td>$errepidea</td><td>$iruzkina</td></tr> \n";	
+				echo '<td class="zelda">'.$data.'</td><td class="zelda">'.$mota.'</td><td class="zelda">'.$errepidea.'</td><td class="azkenZelda"><input value="abisua ikusi"type="button" id='.$abisua['id'].' onclick="abisuaBalioaLortu(this.id)"></td></tr></br>';	
 			}
 		?></br></br>
 		<form id="formularioa" name="formularioa">
-			<input type="button" id="abisatu" name="abisatu" value="Abisatu" onclick="javascript:window.location.href='abisuaIgo.html'"></input>
+			<div style="text-align: center">
+				<input type="button" id="abisatu" name="abisatu" value="Abisua igo"  onclick="javascript:window.location.href='abisuaIgo.html'"></input>
+			</div>
 		</form>
+		<script>
+			function abisuaBalioaLortu(id){
+			window.location.href="abisuOsoa.php?id="+id;
+			}
+		</script>
 	</body>
 </html>

@@ -88,7 +88,7 @@
 	<h1>BIDALI ZURE ABISUA</h1>
 	<label>(*) derrigorrezkoak dira betetzea</label></br></br>
 	<div class="form-style">
-	<form action="irakurri_abisua.php" id="formularioa" name="formularioa" onsubmit="return balidatu()">
+	<form action="irakurri_abisua.php" id="formularioa" name="formularioa" onsubmit="return balidatu()" method="post">
 		Mota(*):<select name="mota" id="mota">
 				<option value="Hautatu bat">Hautatu bat</option> 
 				<option value="Kontrola">Kontrola</option>
@@ -107,7 +107,7 @@
 		Errepidea(*):<input type="text" id="errepidea" name="errepidea" required></br>
 		Iruzkina:</br><textarea name="iruzkina" id="iruzkina" rows="5" cols="100"></textarea></br></br>
 		<!--ordua automatikoki jarriko da abisuan-->
-		<input type="submit" id="bidali" name="bidali" value="Bidali"></input>
+		<input type="submit" id="bidali" name="bidali" value="Bidali" onclick="balidatu()"></input>
 		<input type="button" id="itzuli" name="itzuli" value="Itzuli" onclick="javascript:window.location.href='nagusia.php'"></input>	
 	</form>
 	</div>
@@ -120,7 +120,7 @@
 			}
 			if(document.getElementById('probintzia').value=="Hautatu bat"){
 				boolean=false;
-				alert('Hautatu probintzi bat mesedez');
+				alert('Hautatu probintzia bat mesedez');
 			}
 			return boolean;
 		}
