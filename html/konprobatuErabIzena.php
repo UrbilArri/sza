@@ -1,11 +1,11 @@
-<?php
-if(isset($_POST['korreoa'])){
+<?php 
+if(isset($_POST['erab'])){
 	$erabiltzaileak = simplexml_load_file("erabiltzaileak.xml");
 	$dago="";
 	foreach($erabiltzaileak->erabiltzailea as $erabiltzailea){
-		if($erabiltzailea->korreoa == $_POST['korreoa']) $dago= "korreo hau jada erregistraturik dago";
+		if($erabiltzailea->erab == $_POST['erab']) $dago= "erabiltzaile hau jada 		erregistraturik dago";
 		}
-	if($dago=="")$dago="ondo";
+	if($dago=="")$dago="erabiltzaile egokia";
 	echo($dago);
 }
 else echo('<script>location.href="logIn.php"</script>');

@@ -92,7 +92,8 @@
 			Korreoa(*):<input type="text" id="korreoa" name="korreoa" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" oninput="konprobatuKorreoa(this.value)" title="Emailak honako formatua eduki behar du: emaila@emaila.emaila" required></input>
 			<label id="korreoEgoera" style="color: red;"></label></br>
 			Hiria:<input type="text" id="hiria" name="hiria"></input></br>
-			Erabiltzaile izena(*):<input type="text" id="erab" name="erab" required></input></br>
+			Erabiltzaile izena(*):<input type="text" id="erab" name="erab" oninput="konprobatuErabIzena(this.value)" required></input>
+			<label id="erabEgoera" style="color: red;"></label></br>
 			Pasahitza(*):<input type="password" id="pasahitza" name="pasahitza" required></input></br>
 			Pasahitza errepikatu(*):<input type="password" id="pasahitza2" name="pasahitza2" required></input></br></br>
 			<input type="submit" id="erregistratu" name="erregistratu" value="Erregistratu" ></input>
@@ -110,8 +111,7 @@
 					alert('Errepikatutako pasahitza ez da berdina');
 				}
 				if(document.getElementById('korreoEgoera').innerText == "korreo hau jada erregistraturik dago")boolean=false;
-				console.log(document.getElementById('korreoEgoera').innerText);
-				console.log("korreo hau jada erregistraturik dago");
+				if(document.getElementById('erabEgoera').innerText =="erabiltzaile hau jada erregistraturik dago")boolean=false;
 				return boolean;
 			}
 			
@@ -121,6 +121,8 @@
 					var emaitza = xhro.responseText;
 					console.log(emaitza);
 					if(emaitza =="ondo") document.getElementById("korreoEgoera").innerHTML="";
+					else if(emaitza =="erabiltzaile egokia") document.getElementById("erabEgoera").innerHTML="";
+					else if(emaitza =="erabiltzaile hau jada erregistraturik dago")document.getElementById("erabEgoera").innerHTML=emaitza;
 					else document.getElementById("korreoEgoera").innerHTML=emaitza;
 				}
 			}
@@ -129,7 +131,11 @@
 				xhro.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				xhro.send("korreoa="+korreoa);
 			}
-
+			function konprobatuErabIzena(erab){
+				xhro.open("POST", "konprobatuErabIzena.php", true);
+				xhro.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				xhro.send("erab="+erab);
+			}
 		</script>
 	</body>
 </html>

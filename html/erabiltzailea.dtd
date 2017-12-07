@@ -1,6 +1,6 @@
 <!ELEMENT erabiltzaileak (erabiltzailea)*>
 <!ATTLIST erabiltzaileak azkenid IDREF #REQUIRED>
-<!ELEMENT erabiltzailea (izena, abizena, korreoa, hiria, erabiltzailea, pasahitza, pasahitza2)>
+<!ELEMENT erabiltzailea (izena, abizena, korreoa, hiria, erabiltzailea, pasahitza)>
 <!ATTLIST erabiltzailea id ID #REQUIRED>
 <!ELEMENT izena (#PCDATA)>
 <!ELEMENT abizena (#PCDATA)>
@@ -8,4 +8,3 @@
 <!ELEMENT hiria (#PCDATA)>
 <!ELEMENT erabiltzailea (#PCDATA)>
 <!ELEMENT pasahitza (#PCDATA)>
-<!ELEMENT pasahitza2 (#PCDATA)>

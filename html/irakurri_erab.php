@@ -11,18 +11,10 @@ if(isset($_POST['izena'], $_POST['abizena'], $_POST['korreoa'], $_POST['erab'], 
 	else $erabiltzailea->addchild('hiria', 'hiririk ez');
 	$erabiltzailea->addchild('erab', $_POST['erab']);
 	$erabiltzailea->addchild('pasahitza', $_POST['pasahitza']);
-	$erabiltzailea->addchild('pasahitza2', $_POST['pasahitza2']);
 	$erabiltzaileak->asXML('erabiltzaileak.xml');
-	header('Location: nagusia.php');
+	echo('<script>location.href="nagusia.php"</script>');
  }
  else{
  	echo('Ez daude datu guztiak');
- 	echo($_GET['izena']);
- 	echo($_POST['izena']);
- 	echo($_POST['abizena']);
- 	echo($_POST['korreoa']);
- 	echo($_POST['erab']);
- 	echo($_POST['pasahitza']);
- 	echo($_POST['pasahitza2']);
  }
 ?>
