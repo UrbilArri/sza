@@ -4,62 +4,10 @@
 	<head>
 		<title>Social Drive</title>
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="./css/itxura.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script type="text/javascript"></script>
 		<style type="text/css">
-			body {
-				background-color: #3CBC8D;
-			}
-			h1 {
-				text-align: center;
-				color: black;
-				font-family: Georgia, "Times New Roman", Times, serif;
-				max-width: 500px;
-				padding: 10px 20px;
-				background: #f4f7f8;
-				margin: 10px auto;
-				padding: 20px;
-				border-radius: 8px;
-			}
-			label{
-				text-align: center;
-				color: black;
-				font-family: Georgia, "Times New Roman", Times, serif;
-				display: block;
-			}
-			.form-style{
-				max-width: 500px;
-				padding: 10px 20px;
-				background: #f4f7f8;
-				margin: 10px auto;
-				padding: 20px;
-				border-radius: 8px;
-				font-family: Georgia, "Times New Roman", Times, serif;
-			}
-			.form-style input[type="text"],
-			.form-style input[type="password"]{
-				font-family: Georgia, "Times New Roman", Times, serif;
-				background: rgba(255,255,255,.1);
-				border: none;
-				border-radius: 4px;
-				font-size: 16px;
-				margin: 0;
-				outline: 0;
-				padding: 7px;
-				width: 100%;
-				box-sizing: border-box;
-				box-sizing: border-box;
-				box-sizing: border-box;
-				background-color: #e8eeef;
-				color:#8a97a0;
-				box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-				margin-bottom: 30px;
-		   
-			}
-			.form-style input[type="text"]:focus
-			.form-style input[type="password"]:focus{
-				background: #d2d9dd;
-			}
 			.form-style input[type="submit"],
 			.form-style input[type="button"]
 			{
@@ -76,6 +24,7 @@
 				border: 1px solid #16a085;
 				border-width: 1px 1px 3px;
 				margin-bottom: 10px;
+				border-radius: 12px;
 			}
 			.form-style input[type="submit"]:hover,
 			.form-style input[type="button"]:hover
@@ -90,7 +39,7 @@
 		<div class="form-style">
 		<form action="" id="formularioa" name="formularioa" method="post">
 			Erabiltzaile izena:<input type="text" id="erab" name="erab" required></input></br>
-			Pasahitza:<input type="password" id="pasahitza" name="pasahitza" required></input></br>
+			Pasahitza:<input type="password" id="pasahitza" name="pasahitza" style="background-color: #e8eeef;" required></input></br>
 			<input type="submit" id="login" name="login" value="Log In" ></input>
 			<input type="button" id="erregistratu" name="erregistratu" value="Erregistratu" onclick="javascript:window.location.href='erregistroa.html'"></input>	
 		</form>
