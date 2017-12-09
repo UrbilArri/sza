@@ -12,7 +12,7 @@ if(isset($_POST['izena'], $_POST['abizena'], $_POST['korreoa'], $_POST['erab'], 
 	$erabiltzailea->addchild('erab', $_POST['erab']);
 	$erabiltzailea->addchild('pasahitza', $_POST['pasahitza']);
 	$erabiltzaileak->asXML('../xml/erabiltzaileak.xml');
-	echo('<script>location.href="nagusia.php"</script>');
+	echo('<script>location.href="logIn.php"</script>');
  }
  else{
  	echo('Ez daude datu guztiak');
