@@ -4,14 +4,14 @@
 	<head>
 		<title>Social drive</title>
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-		<link rel="stylesheet" type="text/css" href="./css/itxura.css">
+		<link rel="stylesheet" type="text/css" href="../css/itxura.css">
 		<style>
 		</style>
 	</head>
 	<body>
 		<h1>Profila</h1>
 		<?php
-			$erabiltzaileak = simplexml_load_file('erabiltzaileak.xml');
+			$erabiltzaileak = simplexml_load_file('../xml/erabiltzaileak.xml');
 			$erab=$_SESSION['name'];
 			foreach($erabiltzaileak->erabiltzailea as $erabiltzailea){
 				$laguntza=$erabiltzailea->erab;
@@ -32,8 +32,8 @@
 							<input type="button" id="logout" name="logout" value="Log out" onclick="javascript:window.location.href='logIn.php'"></input>
 							<input type="button" id="itzuli" name="itzuli" value="Itzuli"  onclick="javascript:window.location.href='nagusia.php'"></input>
 							</br></br></br></br></br><div class="azpiko-botoiak">
-							<input type="submit" id="gorde" name="gorde" style="right:45%; bottom: 25%" value="Gorde Aldaketak"></input>
-						</div>
+							<input type="submit" id="gorde" name="gorde" style="top:25px;" value="Gorde Aldaketak"></input>
+							</div>
 					</form>
 					<?php
 				}
@@ -44,7 +44,7 @@
 <?php
 if(isset($_POST['name'])){
 	if(isset($_POST['gorde'], $_POST['izena'], $_POST['abizena'], $_POST['korreoa'])){
-		$erabiltzaileak = simplexml_load_file('erabiltzaileak.xml');
+		$erabiltzaileak = simplexml_load_file('./xml/erabiltzaileak.xml');
 				$erab=$_SESSION['user'];
 				foreach($erabiltzaileak->erabiltzailea as $erabiltzailea){
 					$laguntza=$erabiltzailea->erab;
@@ -55,7 +55,7 @@ if(isset($_POST['name'])){
 						$hiria=$erabiltzailea->hiria=$_POST['hiria'];
 					}
 				}
-		$erabiltzaileak->asXML('erabiltzaileak.xml');
+		$erabiltzaileak->asXML('../xml/erabiltzaileak.xml');
 		echo('<script>location.href="nagusia.php"</script>');
 	}
 	if(isset($_POST['logout'])){

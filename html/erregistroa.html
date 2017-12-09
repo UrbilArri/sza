@@ -3,8 +3,8 @@
 	<head>
 		<title>Social Drive</title>
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-		<script type="text/javascript"></script>
-		<link rel="stylesheet" type="text/css" href="./css/itxura.css">
+		<script src=../js/erregistroa.js></script>
+		<link rel="stylesheet" type="text/css" href="../css/itxura.css">
 		<style type="text/css">
 			.form-style input[type="submit"],
 			.form-style input[type="button"]
@@ -35,7 +35,7 @@
 		<h1>ERREGISTRA ZAITEZ!!!</h1>
 		<label>(*) derrigorrezkoak dira betetzea</label></br></br>
 		<div class="form-style">
-		<form action="irakurri_erab.php" id="formularioa" name="formularioa" onsubmit="return balidatu()" method="post">
+		<form action="../php/irakurri_erab.php" id="formularioa" name="formularioa" onsubmit="return balidatu()" method="post">
 			Izena(*):<input type="text" id="izena" name="izena" pattern="[A-Za-z]{1,15}" title="Izena a eta z artean" required></input></br>	
 			Abizena(*):<input type="text" id="abizena" name="abizena" pattern="[A-Za-z]{1,20}" required></input></br>
 			Korreoa(*):<input type="text" id="korreoa" name="korreoa" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" oninput="konprobatuKorreoa(this.value)" title="Emailak honako formatua eduki behar du: emaila@emaila.emaila" required></input>
@@ -46,45 +46,8 @@
 			Pasahitza(*):<input type="password" id="pasahitza" name="pasahitza" style="background-color: #e8eeef;" required></input></br>
 			Pasahitza errepikatu(*):<input type="password" id="pasahitza2" name="pasahitza2" style="background-color: #e8eeef;" required></input></br>
 			<input type="submit" id="erregistratu" name="erregistratu" value="Erregistratu" ></input>
-			<input type="button" id="itzuli" name="itzuli" value="Itzuli" onclick="javascript:window.location.href='logIn.php'"></input>	
+			<input type="button" id="Logueatu" name="itzuli" value="Itzuli" onclick="javascript:window.location.href='../php/logIn.php'"></input>	
 		</form>
 		</div>
-		<script>
-			xhro = new XMLHttpRequest();
-			function balidatu(){
-				var boolean=true;
-				var pasahitza = document.getElementById('pasahitza').value;
-				var pasahitza2 = document.getElementById('pasahitza2').value;
-				if(pasahitza!=pasahitza2){
-					boolean=false;
-					alert('Errepikatutako pasahitza ez da berdina');
-				}
-				if(document.getElementById('korreoEgoera').innerText == "korreo hau jada erregistraturik dago")boolean=false;
-				if(document.getElementById('erabEgoera').innerText =="erabiltzaile hau jada erregistraturik dago")boolean=false;
-				return boolean;
-			}
-			
-			
-			xhro.onreadystatechange = function(){
-				if(xhro.readyState == 4 && xhro.status==200){
-					var emaitza = xhro.responseText;
-					console.log(emaitza);
-					if(emaitza =="ondo") document.getElementById("korreoEgoera").innerHTML="";
-					else if(emaitza =="erabiltzaile egokia") document.getElementById("erabEgoera").innerHTML="";
-					else if(emaitza =="erabiltzaile hau jada erregistraturik dago")document.getElementById("erabEgoera").innerHTML=emaitza;
-					else document.getElementById("korreoEgoera").innerHTML=emaitza;
-				}
-			}
-			function konprobatuKorreoa(korreoa){
-				xhro.open("POST", "konprobatuKorreoa.php", true);
-				xhro.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-				xhro.send("korreoa="+korreoa);
-			}
-			function konprobatuErabIzena(erab){
-				xhro.open("POST", "konprobatuErabIzena.php", true);
-				xhro.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-				xhro.send("erab="+erab);
-			}
-		</script>
 	</body>
 </html>

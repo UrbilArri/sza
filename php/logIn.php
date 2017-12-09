@@ -4,9 +4,9 @@
 	<head>
 		<title>Social Drive</title>
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-		<link rel="stylesheet" type="text/css" href="./css/itxura.css">
+		<link rel="stylesheet" type="text/css" href="../css/itxura.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script type="text/javascript"></script>
+		<script src="../js/logIn.js"></script>
 		<style type="text/css">
 			.form-style input[type="submit"],
 			.form-style input[type="button"]
@@ -41,21 +41,14 @@
 			Erabiltzaile izena:<input type="text" id="erab" name="erab" required></input></br>
 			Pasahitza:<input type="password" id="pasahitza" name="pasahitza" style="background-color: #e8eeef;" required></input></br>
 			<input type="submit" id="login" name="login" value="Log In" ></input>
-			<input type="button" id="erregistratu" name="erregistratu" value="Erregistratu" onclick="javascript:window.location.href='erregistroa.html'"></input>	
+			<input type="button" id="erregistratu" name="erregistratu" value="Erregistratu" onclick="javascript:window.location.href='../html/erregistroa.html'"></input>	
 		</form>
 		</div>
-		<script>
-			$(document).ready(function(){
-				$("#erregistratu").submit(function(){
-					location.href="erregistratu.php"
-				});
-			});
-		</script>
 	</body>
 </html>
 <?php
 if(isset($_POST['erab'], $_POST['pasahitza'])){
- 	$erabiltzaileak=simplexml_load_file('erabiltzaileak.xml');
+ 	$erabiltzaileak=simplexml_load_file('../xml/erabiltzaileak.xml');
 	foreach($erabiltzaileak->erabiltzailea as $erabiltzailea){
 		$erab=$erabiltzailea->erab;
 		$pasahitza=$erabiltzailea->pasahitza;

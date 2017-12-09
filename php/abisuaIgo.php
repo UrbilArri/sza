@@ -5,8 +5,8 @@
 		<title>Social drive</title>
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="./css/itxura.css">
-		<script type="text/javascript" src=""></script>
+		<script src="../js/abisuaIgo.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="../css/itxura.css">
 		<style type="text/css">
 			.form-style input[type="submit"],
 			.form-style input[type="button"]
@@ -55,30 +55,17 @@
 		Hiria(*):<input type="text" id="hiria" name="hiria" required></br>
 		Errepidea(*):<input type="text" id="errepidea" name="errepidea" required></br>
 		Iruzkina:</br><textarea name="iruzkina" id="iruzkina" rows="5" cols="100"></textarea></br></br>
-		<!--ordua automatikoki jarriko da abisuan-->
 		<input type="submit" id="bidali" name="bidali" value="Bidali"></input>
 		<input type="button" id="itzuli" name="itzuli" value="Itzuli" onclick="javascript:window.location.href='nagusia.php'"></input>	
 	</form>
 	</div>
-	<script>
-		$(document).ready(function(){
-			$("#formularioa").submit(function(){
-				var boolean = false;
-				if($("#mota").val() == "Hautatu bat"){
-					boolean = false;
-					alert('Hautatu abisu mota bat mesedez');
-				}
-				if($("#probintzia").val() == "Hautatu bat"){
-					boolean = false;
-					alert('Hautatu probintzia bat mesedez');
-				}
-				return boolean;	
-			});
-		});
-		<?php
+		
+	</body>	
+</html>
+<?php
 			if(isset($_SESSION['name'])){
 			if(isset($_POST['mota'], $_POST['probintzia'], $_POST['hiria'], $_POST['errepidea'])){
-				$abisuak=simplexml_load_file('abisuak.xml');
+				$abisuak=simplexml_load_file('../xml/abisuak.xml');
 				$id=strval($abisuak->count());
 				$abisua=$abisuak->addchild('abisua');
 				$abisua->addAttribute('id',"n".$id);
@@ -95,16 +82,10 @@
 					$iruzkina=$_POST['iruzkina'];
 				}
 				$abisua->addchild('iruzkina', $iruzkina);
-				$abisuak->asXML('abisuak.xml');
+				$abisuak->asXML('../xml/abisuak.xml');
 				echo "<script> window.location.href='nagusia.php'</script>";
 			 }
-			 else{
-				echo('Ez daude datu guztiak');
 			}
-			}
-			else echo('<script>location.href="login.php"</script>');
-		?>
-	</script>
-	</body>	
-</html>
+			else echo('<script>location.href="logIn.php"</script>');
+?>
 
