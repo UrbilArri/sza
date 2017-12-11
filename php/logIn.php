@@ -6,7 +6,7 @@
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 		<link rel="stylesheet" type="text/css" href="../css/itxura.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="../js/logIn.js"></script>
+		<script src="../js/logIn.js" type="text/javascript"></script>
 		<style type="text/css">
 			.form-style input[type="submit"],
 			.form-style input[type="button"]

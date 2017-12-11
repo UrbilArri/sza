@@ -1,5 +1,4 @@
 <!ELEMENT abisuak (abisua)*>
-<!ATTLIST abisuak azkenid IDREF #REQUIRED>
 <!ELEMENT abisua (data, mota, pribintzia, hiria, errepidea, iruzkina)>
 <!ATTLIST abisua id ID #REQUIRED>
 <!ELEMENT data (#PCDATA)>
